@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 import pickle
 import plotly.express as px
-import torch
-from torch import nn
 
 from model import FootballPredictorWrapper
 
