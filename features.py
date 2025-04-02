@@ -404,50 +404,50 @@ def get_manual_features(general_inputs):
     
     return features
 
-# def get_manual_features(general_inputs):
-#     """Fallback to manual feature input when match is not active"""
-#     team_inputs = {}
+def get_manual_features(general_inputs):
+    """Fallback to manual feature input when match is not active"""
+    team_inputs = {}
 
-#     home_team = i2t[st.session_state.get('home_team_index', 0)]
-#     away_team = i2t[st.session_state.get('away_team_index', 1)]
+    home_team = i2t[st.session_state.get('home_team_index', 0)]
+    away_team = i2t[st.session_state.get('away_team_index', 1)]
     
-#     # Calculate and add winrates
-#     home_home_winrate, home_overall_winrate = calculate_winrates(data, home_team, is_home=True)
-#     away_away_winrate, away_overall_winrate = calculate_winrates(data, away_team, is_home=False)
+    # Calculate and add winrates
+    home_home_winrate, home_overall_winrate = calculate_winrates(data, home_team, is_home=True)
+    away_away_winrate, away_overall_winrate = calculate_winrates(data, away_team, is_home=False)
     
-#     team_inputs.update({
-#         'home_team_home_winrate': home_home_winrate,
-#         'home_team_overall_winrate': home_overall_winrate,
-#         'away_team_away_winrate': away_away_winrate,
-#         'away_team_overall_winrate': away_overall_winrate
-#     })
+    team_inputs.update({
+        'home_team_home_winrate': home_home_winrate,
+        'home_team_overall_winrate': home_overall_winrate,
+        'away_team_away_winrate': away_away_winrate,
+        'away_team_overall_winrate': away_overall_winrate
+    })
     
-#     team_inputs['Home Team Rating'] = st.session_state.get('home_team_rating', 7.0)
-#     team_inputs['Away Team Rating'] = st.session_state.get('away_team_rating', 7.0)
-#     team_inputs['Home Team'] = st.session_state.get('home_team_index', 0)
-#     team_inputs['Away Team'] = st.session_state.get('away_team_index', 1)
+    team_inputs['Home Team Rating'] = st.session_state.get('home_team_rating', 7.0)
+    team_inputs['Away Team Rating'] = st.session_state.get('away_team_rating', 7.0)
+    team_inputs['Home Team'] = st.session_state.get('home_team_index', 0)
+    team_inputs['Away Team'] = st.session_state.get('away_team_index', 1)
     
-#     general_features = ['Match Excitement', 'year']
-#     for feature in general_features:
-#         if feature == 'year':
-#             general_inputs[feature] = 2024
-#         else:
-#             general_inputs[feature] = st.sidebar.slider(
-#                 feature, min_value=0.0, max_value=10.0, value=5.0)
+    general_features = ['Match Excitement', 'year']
+    for feature in general_features:
+        if feature == 'year':
+            general_inputs[feature] = 2024
+        else:
+            general_inputs[feature] = st.sidebar.slider(
+                feature, min_value=0.0, max_value=10.0, value=5.0)
     
-#     team_features = [f for f in features_used if f not in general_features and f not in ['Home Team Rating', 'Away Team Rating', 'Home Team', 'Away Team']]
-#     for feature in team_features:
-#         if 'Possession' in feature or 'Pass Success' in feature:
-#             team_inputs[feature] = st.sidebar.slider(
-#                 feature, min_value=0.0, max_value=100.0, value=50.0)
-#         elif any(card in feature for card in ['Yellow Cards', 'Red Cards', 'Second Yellow Cards']):
-#             team_inputs[feature] = st.sidebar.number_input(
-#                 feature, min_value=0, max_value=5, value=0)
-#         elif any(stat in feature for stat in ['Shots', 'Corners', 'Throw Ins', 'Aerials Won', 'Clearances', 'Fouls']):
-#             team_inputs[feature] = st.sidebar.number_input(
-#                 feature, min_value=0, max_value=30, value=5)
-#         elif 'Goals' in feature:
-#             team_inputs[feature] = st.sidebar.number_input(
-#                 feature, min_value=0, max_value=5, value=0)
+    team_features = [f for f in features_used if f not in general_features and f not in ['Home Team Rating', 'Away Team Rating', 'Home Team', 'Away Team']]
+    for feature in team_features:
+        if 'Possession' in feature or 'Pass Success' in feature:
+            team_inputs[feature] = st.sidebar.slider(
+                feature, min_value=0.0, max_value=100.0, value=50.0)
+        elif any(card in feature for card in ['Yellow Cards', 'Red Cards', 'Second Yellow Cards']):
+            team_inputs[feature] = st.sidebar.number_input(
+                feature, min_value=0, max_value=5, value=0)
+        elif any(stat in feature for stat in ['Shots', 'Corners', 'Throw Ins', 'Aerials Won', 'Clearances', 'Fouls']):
+            team_inputs[feature] = st.sidebar.number_input(
+                feature, min_value=0, max_value=30, value=5)
+        elif 'Goals' in feature:
+            team_inputs[feature] = st.sidebar.number_input(
+                feature, min_value=0, max_value=5, value=0)
             
-#     return {**general_inputs, **team_inputs}
+    return {**general_inputs, **team_inputs}
