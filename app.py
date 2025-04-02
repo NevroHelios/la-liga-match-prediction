@@ -78,40 +78,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with tab_details:
-    st.markdown('<p class="title">Project Details</p>', unsafe_allow_html=True)
-
-    st.markdown('<p class="subtitle">Project Report On:</p>', unsafe_allow_html=True)
-    st.markdown('<h3 style="text-align: center; color: #16a085;">La Liga Football Match Prediction Using Machine Learning</h3>', unsafe_allow_html=True)
-
-    st.markdown("""
-    <div id="box">
-        <i >(A dissertation submitted in partial fulfillment of the requirements of 4th Semester 2020 
-        Project of the B.Tech. Examinations in Computer Science and Engineering of the 
-        Maulana Abul Kalam Azad University of Technology.)</i>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown('<p class="subtitle">Students:</p>', unsafe_allow_html=True)
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        st.markdown('<p class="highlight">Names:</p>', unsafe_allow_html=True)
-        st.markdown("- Manab Mandal  \n- Ankan Malik  \n- Debkanta Pal")
-    
-    with col2:
-        st.markdown('<p class="highlight">Roll Numbers:</p>', unsafe_allow_html=True)
-        st.markdown("- 10200121061  \n- 10200121064  \n- 10200122006")
-
-    # Instructor Details
-    st.markdown('<p class="subtitle">Instructor:</p>', unsafe_allow_html=True)
-    st.markdown('<p class="highlight">Dr. Tanmay Chakraborty</p>', unsafe_allow_html=True)
-
-    # Department Details
-    st.markdown('<p class="subtitle">Department:</p>', unsafe_allow_html=True)
-    st.markdown("""
-    **Department of Computer Science and Engineering**  
-    *Kalyani Government Engineering College*
-    """)
+    st.image("https://wallpapers.com/images/hd/bocchi-the-rock-surprised-reaction-uf98jl11d34v5h6c.jpg", use_container_width=True)
 
 
 with tab_playground:
